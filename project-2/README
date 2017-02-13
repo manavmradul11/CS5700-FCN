@@ -1,0 +1,44 @@
+Project 1: Simple Client
+
+Individual Project
+
+Name:       Manu Saxena
+CCIS ID :   manu11
+NUID :      001747911
+
+-----------------------------------------------------------------
+
+I started by learning about Python's socket library and API calls.Initially I only wrote code and tested to connect
+with the server. When the connection was successful, I read through the protocols in the assignment and started to
+code non SSL supported version. After I had success in receiving the secret key from the server. I modified the code to
+support SSL as well.
+
+One of the challenges I faced is to create a command line executable program that could directly run on the CCIS Linux
+server.
+
+To test:
+
+Run make
+
+then
+
+Run
+
+Non-SSL:
+
+./client cs5700sp17.ccs.neu.edu 001747911
+
+or
+
+./client -p 27993 cs5700sp17.ccs.neu.edu 001747911
+
+or
+
+SSL:
+
+./client -p 27994 -s cs5700sp17.ccs.neu.edu 001747911
+
+or
+
+./client -s cs5700sp17.ccs.neu.edu 001747911
+
