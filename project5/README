@@ -1,0 +1,41 @@
+HIGH LEVEL APPROACH
+
+-> Code a DNS server, which will parse command line arguments and send the IP of nearest replica server.
+-> Run http server with cache management on each of replica server.
+-> Due to very less availability of cache space, cache management is used.
+-> If the page is not there in the cache, the replcia server will request the origin for content, cache it and send it to client.
+
+
+IMPLEMENTATION
+
+-> We started by parsing command line arguments using getopt().
+-> Derived a UDPServer class from BaseRequestHandler and redefined its method handle(). Reference: https://docs.python.org/2/library/socketserver.html
+-> Understood the DNS packet structure such as Header, Question, Answer and Authority.
+-> DNS Header contains important information needed for implementation of UDP packet.
+-> If QR field is 0 it is a request, if it is 1 then it is a response.
+-> Creating of packet and extracitng information was similiar to one in RawSockets.
+-> For testing the code we followed the instructions mentioned on the site.
+-> Used Scamper command to test the latency so that client can be forward to nearets replica server. If it failed, we use geolocation api.
+
+
+CHALLENGES FACED
+
+-> Understanding the project was the most difficult part. We watched youtube videos to refresh the concepts.
+-> Handling DNS request and reply was difficult. We read DNS basic concepts from the following links. 
+http://www.ccs.neu.edu/home/amislove/teaching/cs3700/spring15/handouts/project3.pdf
+http://www.ccs.neu.edu/home/amislove/teaching/cs3700/spring15/handouts/project3-primer.pdf
+-> Understood the difference between Recursive name server and authoritative name server.
+https://umbrella.cisco.com/blog/blog/2014/07/16/difference-authoritative-recursive-dns-nameservers/
+-> 
+
+
+STUDENT CONTRIBUTION
+Manu worked on
+-> HTTP server
+-> Finding RTT
+-> Testing the code
+
+Sarvesh worked on
+-> DNS server
+-> Testing the code
+-> Readme file

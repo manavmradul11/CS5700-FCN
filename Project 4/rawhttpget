@@ -1,0 +1,12 @@
+#!/usr/bin/python
+import sys
+from http import *
+
+if len(sys.argv) != 2:
+	print "Invalid data entered. Please try again."
+
+# Call http class
+http = Http()
+
+# function call to get data
+http.get_data(sys.argv[1],1)
